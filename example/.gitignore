@@ -22,3 +22,6 @@ expo-env.d.ts
 # native build 
 android/
 ios/
+
+# Use yarn.lock
+package-lock.json
