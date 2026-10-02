@@ -43,6 +43,14 @@
           "backgroundColor": "#ffffff"
         }
       ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "enableSceneSupport": true
+          }
+        }
+      ],
       "@config-plugins/detox",
       "./config/add-android-dependencies",
       "./config/payjp-three-d-secure"
