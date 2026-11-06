@@ -42,6 +42,15 @@
     "react-test-renderer": "19.3.0",
     "typescript": "~6.0.3"
   },
+  "expo": {
+    "autolinking": {
+      "ios": {
+        "exclude": [
+          "expo-router"
+        ]
+      }
+    }
+  },
   "jest": {
     "preset": "jest-expo"
   },
@@ -49,11 +58,15 @@
   "private": true,
   "scripts": {
     "android": "expo run:android",
+    "build:ios:spm": "node scripts/prebuild-ios-spm.js && xcodebuild -quiet -project ios/PAYJPExample.xcodeproj -scheme PAYJPExample -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' build",
     "ios": "expo run:ios",
+    "ios:spm": "PAYJP_IOS_SPM=1 expo run:ios",
     "lint": "eslint . --cache --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "eslint . --fix --ext .ts,.tsx,.js,.jsx",
     "postinstall": "node ../scripts/examples_postinstall.js",
     "prebuild": "expo prebuild --clean",
+    "prebuild:ios": "expo prebuild --platform ios --clean",
+    "prebuild:ios:spm": "node scripts/prebuild-ios-spm.js",
     "reset-project": "node ./scripts/reset-project.js",
     "start": "expo start",
     "test": "jest --watchAll"
